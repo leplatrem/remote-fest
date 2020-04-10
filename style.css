@@ -1,0 +1,85 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Regular'), local('Ubuntu-Regular'), url(ubuntu.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+body {
+  background-color: black;
+  color: white;
+  font-size: 1.2em;
+  font-family: Ubuntu; 
+}
+
+h1 {
+  margin-top: 0px;
+}
+
+em {
+  font-size: 1.2em;
+  font-weight: bold;
+  font-style: normal;
+}
+
+#infos {
+  display: inline-block;
+  padding: 1em;
+  background-color: white;
+  color: black;
+}
+
+.video { 
+  display: grid;
+  grid-template-areas: 
+    "thumb title   title  "
+    "thumb when    ago    "
+    "thumb link    link   "
+    "thumb elapsed elapsed"
+    "thumb .       .";
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-items: start;
+}
+
+.video h1 {
+  grid-area: title;
+}
+
+.when {
+  grid-area: when;
+}
+
+.thumb {
+  grid-area: thumb;
+}
+
+.ago {
+  grid-area: ago;
+}
+
+.elapsed {
+  grid-area: elapsed;
+}
+
+.link {
+  grid-area: link;
+}
+
+.video {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #0c0c0c;
+}
+
+.elapsed {
+  font-size: 2em;
+}
+
+#videos > .video ~ .video {
+ opacity: 0.4;
+}
