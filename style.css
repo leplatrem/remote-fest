@@ -10,8 +10,12 @@
 body {
   background-color: black;
   color: white;
-  font-size: 1.2em;
+  font-size: 2em;
   font-family: Ubuntu; 
+}
+
+a, a:visited {
+  color: #6181b3;
 }
 
 h1 {
