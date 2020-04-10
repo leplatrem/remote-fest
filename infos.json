@@ -1,17 +1,5 @@
 {
   "videos": [{
-      "title": "Solomun @ Chambord for Cercle",
-      "youtube": "YgBwTcpskgU",
-      "start": "Fri Apr 10 2020 16:30:00 GMT+0200"
-    }, {
-      "title": "Boris Brejcha @ Grand Palais for Cercle",
-      "youtube": "vqz8c4ZP3Wg",
-      "start": "Sun Apr 12 2020 01:30:00 GMT+0200"
-    }, {
-      "title": "(warmup) Kerri Chandler - Reel-To-Reel Session",
-      "youtube": "YC7Mw8RjlXM",
-      "start": "Fri Apr 10 2020 23:30:00 GMT+0200"
-    }, {
       "title": "L'Entourloop • DJ Set • Le Mellotron",
       "youtube": "Ijr5tcSQHuE",
       "start": "Sat Apr 11 2020 23:00:00 GMT+0200"
@@ -19,6 +7,10 @@
       "title": "Fatboy Slim - Live at Sidney Myer Music Bowl, Melbourne (Jan 2020) #RaveAtHome",
       "youtube": "oEutbPu2YwI",
       "start": "Sat Apr 11 2020 23:59:59 GMT+0200"
+    }, {
+      "title": "Solomun @ Chambord x Cercle",
+      "youtube": "YgBwTcpskgU",
+      "start": "Sun Apr 12 2020 1:30:00 GMT+0200"
     }
   ],
   "conf": "https://mozilla.zoom.us/j/601691250"
