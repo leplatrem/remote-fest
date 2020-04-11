@@ -38,11 +38,11 @@ em {
 .video { 
   display: grid;
   grid-template-areas: 
-    "thumb title   title  "
-    "thumb when    ago    "
-    "thumb link    link   "
-    "thumb elapsed elapsed"
-    "thumb .       .";
+    "thumb title   "
+    "thumb when    "
+    "thumb link    "
+    "thumb elapsed "
+    "thumb .       ";
   grid-template-columns: auto auto 1fr;
   grid-template-rows: auto 1fr;
   column-gap: 20px;
@@ -60,10 +60,6 @@ em {
 
 .thumb {
   grid-area: thumb;
-}
-
-.ago {
-  grid-area: ago;
 }
 
 .elapsed {

@@ -42,18 +42,24 @@ window.addEventListener("load", async () => {
       elt.querySelector("h1").textContent = video.title;
       const when = moment(video.datetime).format("HH:mm on ddd D MMMM");
       elt.querySelector(".when").textContent = `Start${started ? "ed on" : "s at"} ${when} `;
-      elt.querySelector(".ago").textContent = `(${currentTime.to(video.datetime)})`;
       elt.querySelector("a.yt").textContent = ytUrl;
       elt.querySelector("a.yt").href = ytUrl;
       elt.querySelector("img.yt").src = `https://img.youtube.com/vi/${video.youtube}/hqdefault.jpg`;
 
-      const elapsed = Math.abs(video.elapsed);
-      const hours = Math.floor(elapsed / 3600);
-      const minutes = Math.floor((elapsed % 3600) / 60);
-      const seconds = elapsed % 60;
-      elt.querySelector(".elapsed").textContent = `
-        ▶ ${video.elapsed < 0 ? "-" : ""}${hours}:${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}
-      `;
+      let elapsed;
+      if (video.elapsed > -300) {
+        const abs = Math.abs(video.elapsed);
+        const hours = Math.floor(abs / 3600);
+        const minutes = Math.floor((abs % 3600) / 60);
+        const seconds = abs % 60;
+        elapsed = `
+          ${video.elapsed < 0 ? "-" : ""}${hours}:${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}
+        `;
+      }
+      else {
+        elapsed = `Press play ${currentTime.to(video.datetime)}`; 
+      }
+      elt.querySelector(".elapsed").textContent = `▶ ${elapsed}`;
 
       root.appendChild(elt);
     });
