@@ -37,7 +37,7 @@ window.addEventListener("load", async () => {
 
       const started = video.elapsed > 0;
       const since = Math.max(video.elapsed, 0);
-      const ytUrl = `https://www.youtube.com/watch?v=${video.youtube}&t=${since}s`;
+      const ytUrl = `https://www.youtube.com/watch?v=${video.youtube}&t=${since + 1}s`;
 
       elt.querySelector("h1").textContent = video.title;
       const when = moment(video.datetime).format("HH:mm on ddd D MMMM");
