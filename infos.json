@@ -1,6 +1,6 @@
 {
   "videos": [{
-      "title": "L'Entourloop • DJ Set #WarmUp",
+      "title": "L'Entourloop • DJ Set @ Le Mellotron",
       "youtube": "Ijr5tcSQHuE",
       "start": "Sat Apr 11 2020 23:00:00 GMT+0200"
     }, {
@@ -8,9 +8,13 @@
       "youtube": "oEutbPu2YwI",
       "start": "Sat Apr 11 2020 23:59:59 GMT+0200"
     }, {
+      "title": "The Black Madonna • DJ Set @ Creamfields 2019",
+      "youtube": "LkRr3LuuCJM",
+      "start": "Sun Apr 12 2020 1:30:00 GMT+0200"
+    }, {
       "title": "Solomun @ Chambord x Cercle",
       "youtube": "YgBwTcpskgU",
-      "start": "Sun Apr 12 2020 1:30:00 GMT+0200"
+      "start": "Sun Apr 12 2020 3:00:00 GMT+0200"
     }
   ],
   "conf": "https://mozilla.zoom.us/j/601691250"
