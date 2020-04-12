@@ -46,7 +46,7 @@ window.addEventListener("load", async () => {
 
       elt.querySelector("h1").textContent = video.title;
       const when = moment(video.datetime).format("HH:mm on ddd D MMMM");
-      elt.querySelector(".when").textContent = `Start${started ? "ed on" : "s at"} ${when} `;
+      elt.querySelector(".when").textContent = `Start${started ? "ed" : "s"} at ${when} `;
       elt.querySelector("a.yt").textContent = ytUrl;
       elt.querySelector("a.yt").href = ytUrl;
       elt.querySelector("img.yt").src = `https://img.youtube.com/vi/${video.youtube}/hqdefault.jpg`;
