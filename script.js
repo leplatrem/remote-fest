@@ -4,18 +4,18 @@ const REFRESH_COUNTDOWN_SECONDS = 0.5;
 const COUNTDOWN_BEFORE_SECONDS = 300;
 
 window.addEventListener("load", async () => {
-	const dateString = (await fetch("/")).headers.get("Date");
-	const officialTime = new Date(dateString);
+  const dateString = (await fetch("/")).headers.get("Date");
+  const officialTime = new Date(dateString);
   const diffOfficial = moment().diff(officialTime, "seconds");
-	console.info("Time difference", diffOfficial, "seconds");
+  console.info("Time difference", diffOfficial, "seconds");
 
-	let infos = {};
-	async function reload() {
-	   infos = await (await fetch("infos.json")).json();
-	};
+  let infos = {};
+  async function reload() {
+     infos = await (await fetch("infos.json")).json();
+  };
   setInterval(reload, REFRESH_INFOS_SECONDS * 1000);
 
-	async function refresh() {
+  async function refresh() {
     const { videos = [], conf } = infos;
 
     const tpl = document.getElementById("video-tpl");
@@ -37,7 +37,7 @@ window.addEventListener("load", async () => {
       }
     }
 
-  	videos.slice(first).forEach(video => {
+    videos.slice(first).forEach(video => {
       const elt = tpl.content.cloneNode(true);
 
       const started = video.elapsed > 0;
