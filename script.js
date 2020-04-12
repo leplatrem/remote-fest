@@ -1,3 +1,8 @@
+const YOUTUBE_CLICK_DELAY = 2;
+const REFRESH_INFOS_SECONDS = 5;
+const REFRESH_COUNTDOWN_SECONDS = 0.5;
+const COUNTDOWN_BEFORE_SECONDS = 300;
+
 window.addEventListener("load", async () => {
 	const dateString = (await fetch("/")).headers.get("Date");
 	const officialTime = new Date(dateString);
@@ -8,7 +13,7 @@ window.addEventListener("load", async () => {
 	async function reload() {
 	   infos = await (await fetch("infos.json")).json();
 	};
-  setInterval(reload, 5000);
+  setInterval(reload, REFRESH_INFOS_SECONDS * 1000);
 
 	async function refresh() {
     const { videos = [], conf } = infos;
@@ -36,8 +41,8 @@ window.addEventListener("load", async () => {
       const elt = tpl.content.cloneNode(true);
 
       const started = video.elapsed > 0;
-      const since = Math.max(video.elapsed, 0);
-      const ytUrl = `https://www.youtube.com/watch?v=${video.youtube}&t=${since + 1}s`;
+      const since = Math.max(video.elapsed + YOUTUBE_CLICK_DELAY, 0);
+      const ytUrl = `https://www.youtube.com/watch?v=${video.youtube}&t=${since}s`;
 
       elt.querySelector("h1").textContent = video.title;
       const when = moment(video.datetime).format("HH:mm on ddd D MMMM");
@@ -47,7 +52,7 @@ window.addEventListener("load", async () => {
       elt.querySelector("img.yt").src = `https://img.youtube.com/vi/${video.youtube}/hqdefault.jpg`;
 
       let elapsed;
-      if (video.elapsed > -300) {
+      if (video.elapsed > -COUNTDOWN_BEFORE_SECONDS) {
         const abs = Math.abs(video.elapsed);
         const hours = Math.floor(abs / 3600);
         const minutes = Math.floor((abs % 3600) / 60);
@@ -67,7 +72,7 @@ window.addEventListener("load", async () => {
     document.getElementById("conf").textContent = conf;
     document.getElementById("conf").href = conf;
   }
-  setInterval(refresh, 500);
+  setInterval(refresh, REFRESH_COUNTDOWN_SECONDS * 1000);
   
   await reload();
   await refresh();
