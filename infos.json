@@ -1,5 +1,39 @@
 {
-  "videos": [
-  ],
-  "conf": "N/A"
+  "videos": [{
+    "title": "L'Entourloop • DJ Set @ Le Mellotron",
+    "youtube": "Ijr5tcSQHuE",
+    "start": "2020-04-11T23:00:00+02:00",
+    "duration": 3343
+  }, {
+    "title": "Fatboy Slim - Live at Sidney Myer Music Bowl, Melbourne (Jan 2020) #RaveAtHome",
+    "youtube": "oEutbPu2YwI",
+    "start": "2020-04-12T00:00:00+02:00",
+    "duration": 5297
+  }, {
+    "title": "The Black Madonna • DJ Set @ Creamfields 2019",
+    "youtube": "LkRr3LuuCJM",
+    "start": "2020-04-12T01:30:00+02:00",
+    "duration": 5372
+  }, {
+    "title": "Solomun @ Chambord x Cercle",
+    "youtube": "YgBwTcpskgU",
+    "start": "2020-04-12T03:00:00+02:00",
+    "duration": 7253
+  }, {
+    "title": "Bob Sinclar live from Studio Ibiza",
+    "youtube": "k1d1twnD7Tk",
+    "start": "2020-04-13T20:00:00+02:00",
+    "duration": 3765
+  }, {
+    "title": "Honey Dijon • DJ Set @ Boiler Room x Sugar Mountain 2018",
+    "youtube": "m_qewI-1cEs",
+    "start": "2020-04-17T23:00:00+02:00",
+    "duration": 5046
+  }, {
+    "title": "Daft Punk - Alive 2007",
+    "youtube": "YQibjGnn6TE",
+    "start": "2020-04-22T22:00:00+02:00",
+    "duration": 5046
+  }],
+  "videoconf": "N/A"
 }

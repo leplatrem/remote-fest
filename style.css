@@ -18,10 +18,6 @@ a, a:visited {
   color: #6181b3;
 }
 
-h1 {
-  margin-top: 0px;
-}
-
 em {
   font-size: 1.2em;
   font-weight: bold;
@@ -38,13 +34,12 @@ em {
 .video { 
   display: grid;
   grid-template-areas: 
-    "thumb title   "
-    "thumb when    "
-    "thumb link    "
-    "thumb elapsed "
-    "thumb .       ";
+    "thumb title    "
+    "thumb when     "
+    "thumb countdown"
+    "thumb link     ";
   grid-template-columns: auto auto 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 1fr auto auto;
   column-gap: 20px;
   row-gap: 20px;
   justify-items: start;
@@ -62,8 +57,8 @@ em {
   grid-area: thumb;
 }
 
-.elapsed {
-  grid-area: elapsed;
+.countdown {
+  grid-area: countdown;
 }
 
 .link {
@@ -80,6 +75,6 @@ em {
   font-size: 2em;
 }
 
-#videos > .video ~ .video {
- opacity: 0.4;
+#videos-prev, #videos-next {
+ opacity: 0.6;
 }

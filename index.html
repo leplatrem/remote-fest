@@ -2,27 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Midnight Fest - Saturday Night at 00:00</title>
+  <title>Concerts @ Home w/ Friends</title>
   <script type="text/javascript" src="moment-with-locales.min.js"></script>
+
   <script type="text/javascript" src="script.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Midnight Fest 🤟😎</h1>
+  <h1>Concerts @ Home w/ Friends 🤟😎</h1>
   <p>We start the concert video <em>all together</em> at the <em>same time</em>!</p>
   <p>Project the video on a big screen, use your headphones for maximum immersion, and get ready!</p>
   <section id="infos">
     <h1>Share your vibes with us!</h1>
     <p>Let's shake it together in the background 💃🕺</p>
-    <a href="" id="conf"></a>
+    <a href="" id="videoconf"></a>
   </section>
-  <div id="videos"></div>
+  <h1>Current session</h1>
+  <div id="videos-current"></div>
+  <h1>Next sessions</h1>
+  <div id="videos-next"></div>
+  <h1>Past sessions</h1>
+  <div id="videos-prev"></div>
 	<template id="video-tpl">
    <section class="video">
      <h1></h1>
      <img class="yt thumb"/>
      <a href="#" target="_blank" rel="noopener" class="yt link"></a>
-     <span class="elapsed"></span>
+     <span class="countdown"></span>
      <span class="when"></span>
    </section>
   </template>
