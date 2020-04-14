@@ -33,31 +33,36 @@ window.addEventListener("load", async () => {
   const rootNext = document.getElementById("videos-next");
 
   let lastVideo;
+  let player;
 
   async function refresh() {
     const currentTime = moment().add(diffOfficial, "seconds");
 
     rootPrev.innerHTML = "";
+    rootCurrent.innerHTML = "";
     rootNext.innerHTML = "";
+
+    let currentVideo;
 
     allVideos.forEach(video => {
       const remaining = moment(video.end).diff(currentTime, "seconds");
       const elapsed = currentTime.diff(video.start, "seconds");
 
-      let elt;
       if (elapsed > 0 && remaining > 0) {
-        if (lastVideo != video.youtube) {
-          elt = tpl.content.cloneNode(true);
-          rootCurrent.innerHTML = "";
-          rootCurrent.appendChild(elt);
-
+        currentVideo = video;
+        if (!player) {
+          player = new Plyr("#player");
+        }
+        if (video.youtube != lastVideo) {
+          player.source = { type: "video", sources: [{ src: video.youtube, provider: "youtube" }]};
           lastVideo = video.youtube;
         }
-        elt = rootCurrent.children[0];
-      } else {
-        elt = tpl.content.cloneNode(true);
+        if (Math.abs(player.currentTime - elapsed) > YOUTUBE_CLICK_DELAY) {
+          player.currentTime = elapsed;
+        }
       }
 
+      const elt = tpl.content.cloneNode(true);
       elt.querySelector("h1").textContent = video.title;
       elt.querySelector("img.yt").src = `https://img.youtube.com/vi/${video.youtube}/hqdefault.jpg`;
 
@@ -93,8 +98,17 @@ window.addEventListener("load", async () => {
         rootPrev.insertBefore(elt, rootPrev.firstChild);
       } else if (elapsed < 0) {
         rootNext.appendChild(elt);
+      } else {
+        rootCurrent.appendChild(elt);
       }
     });
+
+    if (!currentVideo && player) {
+      player.destroy();
+      player = null;
+      rootCurrent.innerHTML = "";
+      lastVideo = null;
+    }
   }
   setInterval(refresh, REFRESH_COUNTDOWN_SECONDS * 1000);
   

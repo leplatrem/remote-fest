@@ -75,6 +75,18 @@ em {
   font-size: 2em;
 }
 
+.video img.yt {
+  height: 8em;
+}
+
+.video h1 {
+  margin: 0;
+}
+
+#player {
+  height: 0;
+}
+
 #videos-prev, #videos-next {
  opacity: 0.6;
 }
