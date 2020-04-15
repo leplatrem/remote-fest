@@ -25,12 +25,13 @@ em {
 .video { 
   display: grid;
   grid-template-areas: 
-    "thumb title    "
-    "thumb when     "
-    "thumb countdown"
-    "thumb link     ";
+    "thumb title      "
+    "thumb description"
+    "thumb when       "
+    "thumb countdown  "
+    "thumb link       ";
   grid-template-columns: auto auto 1fr;
-  grid-template-rows: 1fr auto auto;
+  grid-template-rows: auto 1fr auto auto;
   column-gap: 20px;
   row-gap: 20px;
   justify-items: start;
@@ -38,6 +39,10 @@ em {
 
 .video h1 {
   grid-area: title;
+}
+
+.description {
+  grid-area: description;
 }
 
 .when {
@@ -66,11 +71,15 @@ em {
   font-size: 2em;
 }
 
-.video img.yt {
-  height: 8em;
+.description {
+  font-size: 0.8em;
 }
 
-.video h1 {
+.video img.yt {
+  height: 10em;
+}
+
+.video h1, .video p {
   margin: 0;
 }
 

@@ -64,6 +64,7 @@ window.addEventListener("load", async () => {
 
       const elt = tpl.content.cloneNode(true);
       elt.querySelector("h1").textContent = video.title;
+      elt.querySelector(".description").textContent = video.description;
       elt.querySelector("img.yt").src = `https://img.youtube.com/vi/${video.youtube}/hqdefault.jpg`;
 
       const when = moment(video.start).format("HH:mm on ddd D MMMM");
