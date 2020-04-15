@@ -68,7 +68,8 @@ window.addEventListener("load", async () => {
       elt.querySelector("img.yt").src = `https://img.youtube.com/vi/${video.youtube}/hqdefault.jpg`;
 
       const when = moment(video.start).format("HH:mm on ddd D MMMM");
-      elt.querySelector(".when").textContent = `Start${elapsed > 0 ? "ed" : "s"} at ${when} `;
+      const duration = moment.duration(video.duration, "seconds").format("H [hour]");
+      elt.querySelector(".when").textContent = `Start${elapsed > 0 ? "ed" : "s"} at ${when} (~${duration})`;
 
       let countdown = "";
       let since = "";
