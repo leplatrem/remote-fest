@@ -22,6 +22,18 @@ em {
   color: black;
 }
 
+#current {
+  display: flex;
+}
+
+#current .plyr {
+  width: 50%;
+}
+
+#current img.yt {
+  display: none;
+}
+
 .video { 
   display: grid;
   grid-template-areas: 

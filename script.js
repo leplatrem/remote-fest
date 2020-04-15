@@ -29,7 +29,7 @@ window.addEventListener("load", async () => {
 
   const tpl = document.getElementById("video-tpl");
   const rootPrev = document.getElementById("videos-prev");
-  const rootCurrent = document.getElementById("videos-current");
+  const rootCurrent = document.getElementById("infos-current");
   const rootNext = document.getElementById("videos-next");
 
   let lastVideo;
