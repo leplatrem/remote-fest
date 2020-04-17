@@ -15,6 +15,8 @@ window.addEventListener("load", async () => {
     allVideos = infos.videos.map(video => {
       const start = new Date(video.start);
       return  {
+        id: video.hosted ? video.hosted.url : video.youtube,
+        thumbnail: video.hosted ? video.hosted.thumbnail : `https://img.youtube.com/vi/${video.youtube}/hqdefault.jpg`,
         start,
         end: moment(start).add(video.duration, "seconds").toDate(),
         ...video
@@ -53,9 +55,13 @@ window.addEventListener("load", async () => {
         if (!player) {
           player = new Plyr("#player");
         }
-        if (video.youtube != lastVideo) {
-          player.source = { type: "video", sources: [{ src: video.youtube, provider: "youtube" }]};
-          lastVideo = video.youtube;
+        if (video.id != lastVideo) {
+          // Current video changed! Load it!
+          player.source = video.hosted ?
+            { type: video.hosted.type, sources: [ { src: video.hosted.url, type: video.hosted.format } ]} :
+            { type: "video", sources: [{ src: video.youtube, provider: "youtube" }]};
+
+          lastVideo = video.id;
         }
         if (Math.abs(player.currentTime - elapsed) > YOUTUBE_CLICK_DELAY) {
           player.currentTime = elapsed;
@@ -65,7 +71,6 @@ window.addEventListener("load", async () => {
       const elt = tpl.content.cloneNode(true);
       elt.querySelector("h1").textContent = video.title;
       elt.querySelector(".description").textContent = video.description;
-      elt.querySelector("img.yt").src = `https://img.youtube.com/vi/${video.youtube}/hqdefault.jpg`;
 
       const when = moment(video.start).format("HH:mm on ddd D MMMM");
       const duration = moment.duration(video.duration, "seconds").format("H [hour]");
@@ -92,7 +97,13 @@ window.addEventListener("load", async () => {
       }
       elt.querySelector(".countdown").textContent = countdown;
 
-      const ytUrl = `https://www.youtube.com/watch?v=${video.youtube}${since}`;
+      let ytUrl;
+      if (video.youtube) {
+        ytUrl = `https://www.youtube.com/watch?v=${video.youtube}${since}`;
+      } else {
+        ytUrl = video.hosted.url;
+      }
+      elt.querySelector("img.yt").src = video.thumbnail;
       elt.querySelector("a.yt").textContent = ytUrl;
       elt.querySelector("a.yt").href = ytUrl;
 
