@@ -31,6 +31,17 @@
     "start": "2020-04-15T18:00:00+02:00",
     "duration": 4013
   }, {
+    "title": "Joan & Julia • DJ Set @ Home",
+    "description": "",
+    "hosted": {
+      "type": "audio",
+      "url": "https://media.mathieu-leplatre.info/remote-fest/dj-joan-julia.mp3",
+      "format": "audio/mp3",
+      "thumbnail": "https://media.mathieu-leplatre.info/remote-fest/dj-joan-julia.jpg"
+    },
+    "start": "2020-04-17T18:00:00+02:00",
+    "duration": 3600
+  }, {
     "title": "The Martinez Brothers @ CÉ LA VI Marina Bay Sands in Singapore for Cercle",
     "description": "Some mashups and house gigs while we gather",
     "youtube": "29LwM9Xa6l8",
